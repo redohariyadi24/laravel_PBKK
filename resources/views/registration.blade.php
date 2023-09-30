@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Metadata -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Registrasi</title>
     <style>
+        /* Style untuk seluruh halaman */
         body {
             font-family: Arial, sans-serif;
             background: linear-gradient(to bottom, #FAF1E4, #9EB384);
@@ -16,6 +18,7 @@
             height: 100vh;
         }
 
+        /* Style untuk wadah konten */
         .container {
             background-color: rgba(255, 255, 255, 0.6);
             padding: 30px;
@@ -25,34 +28,40 @@
             text-align: center;
         }
 
+        /* Style untuk header */
         header{
             text-align: center;
             margin-top: 15px;
             margin-bottom: 15px;
         }
 
+        /* Style untuk judul */
         h2 {
             font-size: 27px;
             margin: 0px;
         }
 
+        /* Style untuk subjudul */
         h4 {
             font-weight: lighter;
             margin: 0px;
         }
 
+        /* Style untuk baris formulir */
         .form-row {
             display: flex;
             justify-content: space-between;
             margin-bottom: 10px;
         }
 
+        /* Style untuk kelompok elemen formulir */
         .form-group {
             flex: 1;
             margin-right: 10px;
             text-align: left;
         }
 
+        /* Style untuk label */
         label {
             font-weight: bold;
             margin-bottom: 10px;
@@ -60,8 +69,8 @@
         }
         
 
-        input {
-            
+        /* Style untuk input fields */
+        input {   
             padding: 10px;
             margin-bottom: 20px;
             border: 1px solid #ccc;
@@ -70,6 +79,7 @@
             background-color: rgb(206, 222, 189, 0.6);
         }
 
+        /* Style untuk tombol Daftar */
         .btn {
             background-color: #CEDEBD;
             color: #435334;
@@ -81,21 +91,25 @@
             cursor: pointer;
         }
 
+        /* Style hover untuk tombol Daftar */
         .btn:hover {
             background-color: #435334;
             color: #CEDEBD;
         }
 
+        /* Style untuk pesan "Sudah punya akun?" */
         p {
             margin-top: 20px;
         }
 
+        /* Style untuk tautan Masuk */
         a {
             text-decoration: none;
             color: #016A70;
             font-weight: bold;
         }
 
+        /* Style hover untuk tautan Masuk */
         a:hover {
             text-decoration: underline;
         }
@@ -104,10 +118,13 @@
 </head>
 <body>
     <div class="container">
+        <!-- Judul dan subjudul -->
         <header>
-        <h2>Sign In</h2>
-        <h4>Daftar Akun Baru</h4>
+            <h2>Sign In</h2>
+            <h4>Daftar Akun Baru</h4>
         </header>
+        
+        <!-- Formulir Registrasi -->
         <form action="proses_registrasi.php" method="POST">
             <!-- Baris Pertama -->
             <div class="form-row">
@@ -145,7 +162,7 @@
                 </div>
             </div>
             
-            <!-- Baris Keempat -->
+            <!-- Baris Keempat (Password) -->
             <div class="form-row">
                 <div class="form-group password-container">
                     <label for="password">Password:</label>
@@ -158,8 +175,11 @@
                 </div>
             </div>
             
+            <!-- Tombol Daftar -->
             <button type="submit" class="btn">Daftar</button>
         </form>
+        
+        <!-- Tautan untuk Masuk -->
         <p>Sudah punya akun? <a href="login">Masuk di sini</a></p>
     </div>
 </body>
