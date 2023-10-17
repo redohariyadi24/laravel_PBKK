@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProdukController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +29,10 @@ Route::get('/login', function () {
 Route::get('/registration', function () {
     return view('registration'); // Mengembalikan view 'registration' saat URL '/registration' diakses.
 });
+
+Route::get('/produk', [ProdukController::class, 'index'])->name('produk.index');
+Route::get('/produk/tambah', [ProdukController::class, 'tambah'])->name('produk.tambah');
+Route::post('/produk', [ProdukController::class, 'simpan'])->name('produk.simpan');
+Route::get('/produk/{produk}/edit', [ProdukController::class, 'edit'])->name('produk.edit');
+Route::put('/produk/{produk}/update', [ProdukController::class, 'update'])->name('produk.update');
+Route::delete('/produk/{produk}/hapus', [ProdukController::class, 'hapus'])->name('produk.hapus');
