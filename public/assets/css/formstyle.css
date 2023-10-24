@@ -18,6 +18,16 @@ header h1 {
     font-weight: bolder;
 }
 
+.gambar {
+    border-radius: 10px;
+    max-width:120px;
+    max-height:120px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
 .container {
     max-width: 1300px;
     width: 70%;

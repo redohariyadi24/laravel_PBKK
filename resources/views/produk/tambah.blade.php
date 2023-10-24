@@ -20,7 +20,7 @@
         <!-- Judul halaman atau header konten utama -->
         <h1>Tambahkan Produk</h1>
         <!-- Formulir untuk menambahkan produk dengan tautan ke rute 'produk.simpan' -->
-        <form method="post" action="{{ route('produk.simpan') }}" class="row g-3">
+        <form method="post" action="{{ route('produk.simpan') }}" enctype="multipart/form-data" class="row g-3">
             @csrf  <!-- Menerapkan Perlindungan CSRF (Cross-Site Request Forgery) -->
             @method('post') <!-- Menggunakan metode HTTP 'POST' untuk mengirimkan data formulir -->
             
@@ -39,7 +39,11 @@
             <!-- Kolom input untuk kategori produk -->
             <div class="col-md-6">
                 <label class="form-label">Kategori</label>
-                <input class="form-control" type="text" name="kategori" placeholder="Kategori" />
+                <select class="form-select" name="kategori_id" id="kategori_id" >
+                    @foreach ($data as $row)
+                        <option value="{{ $row->id }}">{{ $row->nama_kategori }}</option>
+                    @endforeach
+                </select>
             </div>
             
             <!-- Kolom input untuk stok produk -->
@@ -55,9 +59,14 @@
             </div>
             
             <!-- Kolom input untuk deskripsi produk -->
-            <div class="col-12">
+            <div class="col-md-6">
                 <label class="form-label">Deskripsi</label>
                 <input class="form-control" type="text" name="deskripsi" placeholder="Deskripsi Produk" />
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Gambar</label>
+                <input class="form-control" type="file" name="gambar" id="gambar" />
             </div>
             
             <div>

@@ -39,20 +39,25 @@
                 <th>Stok</th>
                 <th>Harga</th>
                 <th>Deskripsi</th>
-                <th>Edit</th>
-                <th>Hapus</th>
+                <th>Edit | Hapus</th>
             </tr>
+            <?php $no = 1; ?>  
             <!-- Melakukan perulangan untuk menampilkan setiap produk dalam variabel $produks -->
             @foreach ($produks as $produk) 
                 <tr>
                     <!-- Kolom untuk menampilkan ID produk -->
-                    <td>{{ $produk->id }}</td>
+                    <th scope="row">{{ $no++ }}</th>
                     <!-- Kolom untuk menampilkan nama produk -->
-                    <td>{{ $produk->nama }}</td>
+                    <td class="kolom1">
+                        @if ($produk->gambar) 
+                        <img src=" {{ url('gambar').'/'.$produk->gambar }}" class="gambar">
+                        @endif
+                        <br>
+                        {{ $produk->nama }}</td>
                     <!-- Kolom untuk menampilkan nama artis -->
                     <td>{{ $produk->artis }}</td>
                     <!-- Kolom untuk menampilkan kategori produk -->
-                    <td>{{ $produk->kategori }}</td>
+                    <td>{{ $produk->nama_kategori }}</td>
                     <!-- Kolom untuk menampilkan stok produk -->
                     <td>{{ $produk->stok }}</td>
                     <!-- Kolom untuk menampilkan harga produk dengan format mata uang -->
@@ -62,8 +67,6 @@
                     <td class="center">
                         <!-- Membuat tombol yang berisi Tautan untuk mengedit produk dengan menggunakan rute 'produk.edit' -->
                         <a href="{{ route('produk.edit', ['produk' => $produk]) }}" class="btn-edit">Edit</a>
-                    </td>
-                    <td class="center">
                         <!-- Membuat tombol yang berupa formulir untuk menghapus produk -->
                         <form method="post" action="{{ route('produk.hapus', ['produk' => $produk]) }}">
                             @csrf  <!-- Menerapkan Perlindungan CSRF (Cross-Site Request Forgery) -->

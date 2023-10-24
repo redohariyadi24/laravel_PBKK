@@ -1,4 +1,13 @@
+    html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     font-family: Arial, sans-serif;
     line-height: 1.6;
     background: linear-gradient(to bottom, #faf1e4, #9eb384);
@@ -19,7 +28,7 @@ header h1 {
 }
 /* Style untuk wadah konten utama */
 .container {
-    max-width: 1300px;
+    width: 700px;
     margin: 20px auto;
     padding: 20px;
     background: linear-gradient(to bottom, #cedebd, #9eb384);
@@ -46,37 +55,28 @@ header h1 {
 td{
     font-size: 15px;
     vertical-align: middle;
+    width: 50%;
 }
 
-.gambar {
-    border-radius: 5px;
-    max-width:90px;
-    max-height:90px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    -ms-border-radius: 5px;
-    -o-border-radius: 5px;
-}
-
-td.kolom1{
-    width: 200px;
-}
-td.special {
-    width: 170px;
-}
 tr {
     text-align: center;
 }
 
 td.center {
     display: flex;
-    flex-direction: column;
-    padding: 20px 15px 20px 15px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
+
+.btn-edit, .btn {
+    margin-right: 10px; /* Atur jarak antara tombol Edit dan tombol Delete */
+}
+
 
 a {
     text-decoration: none;
-    align-items: center;
+    align-items: center;    
 }
 
 .btn {
@@ -86,7 +86,6 @@ a {
     border: none;
     font-weight: bold;
     padding: 10px 20px;
-    margin-top: 10px;
     border-radius: 5px;
     cursor: pointer;
 }
@@ -97,11 +96,13 @@ a {
     border: none;
     font-weight: bold;
     padding: 10px 20px;
-    margin-left: 87%;
+    margin-left: 70%;
     border-radius: 5px;
     cursor: pointer;
 }
 .btn-edit {
+    display: inline-block;
+    -webkit-appearance: button;
     background-size: auto;
     background-color: #435334;
     color: #cedebd;
@@ -134,4 +135,5 @@ footer {
     color: #cedebd;
     text-align: center;
     padding: 10px 0;
+    margin-top: 25vh;
 }

@@ -22,7 +22,7 @@
             <h1>Tambahkan Produk</h1>
         </div>
         <!-- Formulir untuk meng-Update data produk dengan tautan ke rute 'produk.update' -->
-        <form method="post" action="{{ route('produk.update', ['produk' => $produk]) }}" class="row g-3">
+        <form method="post" action="{{ route('produk.update', ['produk' => $produk]) }}" class="row g-3" enctype="multipart/form-data">
             @csrf <!-- Menerapkan Perlindungan CSRF (Cross-Site Request Forgery) -->
             @method('put') <!-- Menggunakan metode HTTP 'PUT' untuk mengirimkan data formulir -->
 
@@ -41,7 +41,11 @@
             <!-- Kolom input untuk kategori produk, dengan nilai awal diambil dari $produk->kategori -->
             <div class="col-md-6">
                 <label class="form-label">Kategori</label>
-                <input class="form-control" type="text" name="kategori" placeholder="Kategori" value="{{ $produk->kategori }}"/>
+                <select class="form-select" name="kategori_id" id="kategori_id">
+                    @foreach ($kategoris as $kategori)
+                        <option value="{{ $kategori->id }}">{{ $kategori->nama_kategori }}</option>
+                    @endforeach
+                </select>
             </div>
 
             <!-- Kolom input untuk stok produk, dengan nilai awal diambil dari $produk->stok -->
@@ -55,12 +59,22 @@
                 <label >Harga</label>
                 <input class="form-control" type="text" name="harga" placeholder="Harga" value="{{ $produk->harga }}"/>
             </div>
-            
+
             <!-- Kolom input untuk deskripsi produk, dengan nilai awal diambil dari $produk->deskripsi -->
             <div class="col-12">
                 <label class="form-label">Deskripsi</label>
                 <input class="form-control" type="text" name="deskripsi" placeholder="Deskripsi Produk" value="{{ $produk->deskripsi }}"/>
             </div>
+            
+            @if ($produk->gambar)
+            <img src=" {{ url('gambar').'/'.$produk->gambar }}" class="gambar">
+            @endif
+
+            <div class="col-md-6">
+                <label class="form-label">Gambar</label>
+                <input class="form-control" type="file" name="gambar" id="gambar" />
+            </div>
+
             <!-- Tombol untuk mengirimkan data produk yang akan diperbarui -->
             <div>
                 <input class="btn-tambah" type="submit" value="Update Data Produk" />
